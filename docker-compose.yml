@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  bilstm_autoscaling:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hungdaqq/bilstm_autoscaling:0.0.0
+    ports:
+      - "8000:8000"
+    environment:
+      - MINMAX_SCALER=229426
+      - WINDOWSIZE=10
+      - PODS_MIN=10
+      - RRS=0.6
+      - WORKLOAD_POD=300
+    restart: always
